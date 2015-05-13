@@ -43,4 +43,3 @@ for submission in r.user.get_saved(limit=None, time='all'):
 
     if count == criteria:
         print submission.title.encode('utf-8'), " ", submission.short_link
-saved > 
