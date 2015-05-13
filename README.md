@@ -4,15 +4,15 @@ The script saved.py, allows you to search by multiple critera, title, domain, an
 
 Usage for saved.py:
 
-  Usage:
-    savedLinks [options]
-  Options:
-    -t, --title TITLE     Search for links based on link title
-    -d, --domain DOMAIN   Search for links from a certain domain
-    -r, --reddit REDDIT   Search for links based on subreddit
+    Usage:
+      savedLinks [options]
+    Options:
+      -t, --title TITLE     Search for links based on link title
+      -d, --domain DOMAIN   Search for links from a certain domain
+      -r, --reddit REDDIT   Search for links based on subreddit
     
 To run the webpage.py script just run 
 
-  python webpage.py > output.html
+   python webpage.py > output.html
   
 Remember to edit the scripts to contain your reddit credentials!
