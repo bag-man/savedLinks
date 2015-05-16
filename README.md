@@ -1,6 +1,8 @@
 This project was made out of frustration for not being able to manage my saved links on reddit very easily. I wanted to be able to create a list of all of the videos that I had enjoyed, but this was not possible as there was no way to search by domain. 
 
-The script saved.py, allows you to search by multiple critera, title, domain, and sub-reddit to look for a saved post, or posts. The webpage.py script will generate an HTML file that contains all your saved posts and then allows you to filter them by sub-reddit. You can see mine at http://owen.cymru/saved.html. 
+The script saved.py, allows you to search by multiple critera, title, domain, and sub-reddit to look for a saved post, or posts. The webpage.py script will add all of your saved links to an HTML template, then update the file every 10 minutes to include any new additions. The end HTML file allows you to filter by subreddit as well!
+
+You can see mine at http://owen.cymru/saved.html. 
 
 Usage for saved.py:
 
@@ -13,6 +15,6 @@ Usage for saved.py:
     
 To run the webpage.py script just run:
 
-    python webpage.py > output.html
+    python webpage.py
   
-Remember to edit the scripts to contain your reddit credentials!
+Remember to edit the scripts to contain your reddit credentials, and for the website.py change the path to the HTML template. 
