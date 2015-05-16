@@ -4,19 +4,16 @@
     <meta charset="UTF-8">
     <title>Saved reddit posts</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
-
     <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-
     <!-- bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-
   </head>
   <body>
     <div class="container-fluid">
       <table class='table'>
-        <p>Click a sub-reddit to only show posts from that reddit. Click again to return to all.</p>
         <tr class='headings'>
+          <th style='width: 57px'>Filter</th>
           <th>Subreddit</th>
           <th>Title</th>
         </tr>
@@ -24,6 +21,7 @@
         <!-- Content goes here -->
         <!-- Example
         <tr class='content oldschoolcool'>
+          <td><input class='filter' onclick='filter(this);' type='radio' value='oldschoolcool'/></td>
           <td><span>oldschoolcool</span><br><a href='http://redd.it/35tmzj'>comments</a></td>
           <td><a href='http://imgur.com/d4EZg7o'>Happy French girl and her cat (1959).</a></td>
         </tr>
@@ -39,16 +37,20 @@
 
     $(window).on('hashchange', function() {
       $(".content").show();
+      $('.filter').prop('checked', true);
       $(".content:not(." + window.location.hash.substr(1) + ")").toggle();
     });
 
-    $('span').click(function(event) {
-      $(".content:not(." + event.target.innerHTML +")").toggle();
+    $('.filter').prop('checked', false);
+
+    function filter(button) {
+      $(".content:not(." + button.value +")").toggle();
+      $('.filter').prop('checked', false);
       if(window.location.hash) {
           history.pushState("", document.title, window.location.pathname + window.location.search);
       } else {
-        window.location.hash = event.target.innerHTML;
+        window.location.hash = button.value;
       }
-    });
+    };
   </script>
 </html>
