@@ -22,9 +22,9 @@ if criteria == 0:
 
 r = praw.Reddit(user_agent='savedSearch',
                 client_id='OkDyg4-hOs-TbQ',
-                client_secret='**************',
+                client_secret='******************',
                 username='Midasx',
-                password='**************',)
+                password='**********',)
 
 for post in r.redditor('Midasx').saved(limit=None):
     count = 0
@@ -36,8 +36,7 @@ for post in r.redditor('Midasx').saved(limit=None):
             count += 1
 
     if args['--reddit']:
-        subreddit = post.subreddit.display_name.encode('ascii').lower()
-        if args['--reddit'].lower() == subreddit:
+        if args['--reddit'].lower() == post.subreddit.display_name.lower():
             count += 1
 
     if args['--title']:
