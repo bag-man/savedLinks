@@ -11,8 +11,4 @@ Usage for saved.py:
       -d, --domain DOMAIN   Search for links from a certain domain
       -r, --reddit REDDIT   Search for links based on subreddit
     
-To run the webpage.py script just run:
-
-    python webpage.py
-  
-Remember to edit the scripts to contain your reddit credentials, and for the website.py change the path to the HTML template. 
+There is also a very hacky website/watching script in this repository, but I'm no longer using / maintaining it.

@@ -1,4 +1,3 @@
-#!/bin/python2.7
 """
 Usage:
   savedLinks [options]
@@ -21,25 +20,29 @@ criteria = sum(1 for v in args.values() if v is not None)
 if criteria == 0:
     sys.exit(__doc__)
 
-r = praw.Reddit(user_agent='saved_links')
-r.login("USERNAME", "PASSWORD")
+r = praw.Reddit(user_agent='savedSearch',
+                client_id='OkDyg4-hOs-TbQ',
+                client_secret='**************',
+                username='Midasx',
+                password='**************',)
 
-for submission in r.user.get_saved(limit=None, time='all'):
+for post in r.redditor('Midasx').saved(limit=None):
     count = 0
-    if not hasattr(submission, 'domain'):
+    if not hasattr(post, 'domain'):
         continue  # Filter out saved comments
 
     if args['--domain']:
-        if args['--domain'].lower() == submission.domain:
+        if args['--domain'].lower() == post.domain:
             count += 1
 
     if args['--reddit']:
-        if args['--reddit'].lower() == submission.subreddit.display_name.encode('ascii').lower():
+        subreddit = post.subreddit.display_name.encode('ascii').lower()
+        if args['--reddit'].lower() == subreddit:
             count += 1
 
     if args['--title']:
-        if args['--title'].lower() in submission.title.lower():
+        if args['--title'].lower() in post.title.lower():
             count += 1
 
     if count == criteria:
-        print submission.title.encode('utf-8'), " ", submission.short_link
+        print(post.shortlink, " ", post.title)
