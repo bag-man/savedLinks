@@ -2,8 +2,6 @@ This project was made out of frustration for not being able to manage my saved l
 
 The script saved.py, allows you to search by multiple critera, title, domain, and sub-reddit to look for a saved post, or posts. The webpage.py script will add all of your saved links to an HTML template, then update the file every 10 minutes to include any new additions; this has a bonus benefit of being able to store more than the 1000 saved links that reddit allows you.
 
-You can see mine at [owen.cymru/saved](http://owen.cymru/saved.html).
-
 Usage for saved.py:
 
     Usage:
